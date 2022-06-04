@@ -13,7 +13,7 @@ chmod +x cli-helper
 ./cli-helper
 ```
 
-## Pack Project to Single Executable File
+## Pack Project to Single Executable File (PHP Installed required)
 
 1. move `cli-helper` into PATH 
 
@@ -35,5 +35,40 @@ composer update --no-dev
 > Notice: This command will ask you target phar path, entrypoint file name, etc.
 
 ```bash
-cli-helper pack .
+cli-helper pack . app.phar
 ```
+
+4. Make phar executable
+
+```bash
+# add X permission
+chmod +x /tmp/app.phar
+
+# remove phar suffix, like a binary executable
+mv /tmp/app.phar /tmp/your-app-name
+
+# You can use it any way you like, for example, move to system PATH to execute it directly
+cd /tmp
+./your-app-name
+
+mv your-app-name /usr/local/bin/
+your-app-name
+```
+
+## Make standalone binary executable with PHP (x86_64 only)
+
+Prepare your phar file packed through the above steps, we assume your phar name is `your-app.phar`.
+
+```bash
+# Download micro builds from `static-php-cli` project, remember check the latest PHP version from `https://dl.zhamao.xin/php-bin/file/` !
+wget https://dl.zhamao.xin/php-bin/file/micro-8.0.19-x86_64.tar.gz
+tar -zxvf micro-*.tar.gz
+# Combine micro and your phar files
+cat ./micro your-app.phar > your-app-standalone
+chmod +x your-app-standalone
+
+# Then just execute it anywhere, even your another machine have no php environment!
+./your-app-standalone
+```
+
+> Notice: This project is a complement to [static-php-cli](https://github.com/crazywhalecc/static-php-cli), for more details, check this link.
