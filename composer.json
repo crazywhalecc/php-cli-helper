@@ -1,0 +1,18 @@
+{
+    "name": "crazywhalecc/cli-helper",
+    "type": "project",
+    "require": {
+        "php": ">= 7.2",
+        "symfony/console": "^4 || ^5 || ^6"
+    },
+    "require-dev": {
+        "brainmaestro/composer-git-hooks": "^2.8",
+        "friendsofphp/php-cs-fixer": "^3.2"
+    },
+    "license": "Apache-2.0",
+    "autoload": {
+        "psr-4": {
+            "CliHelper\\": "src/CliHelper"
+        }
+    }
+}
