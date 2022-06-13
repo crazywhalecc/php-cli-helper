@@ -55,12 +55,13 @@ mv your-app-name /usr/local/bin/
 your-app-name
 ```
 
-## Make standalone binary executable with PHP (x86_64 only)
+## Make standalone binary executable with PHP (multiple arch supported)
 
 Prepare your phar file packed through the above steps, we assume your phar name is `your-app.phar`.
 
 ```bash
 # Download micro builds from `static-php-cli` project, remember check the latest PHP version from `https://dl.zhamao.xin/php-bin/file/` !
+# You can change `x86_64` to `aarch64`, `armv7l`。
 wget https://dl.zhamao.xin/php-bin/file/micro-8.0.19-x86_64.tar.gz
 tar -zxvf micro-*.tar.gz
 # Combine micro and your phar files
